@@ -1,0 +1,29 @@
+<p>listado de personajes The wire</p>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+       {{i + 1}} - {{ heroe }}
+    </li>
+</ul>
+
+<button (click) = "borrarHeroe()">
+borrar
+</button>
+
+<!-- Se puede hacer una condición más al if, en este caso "else". El "else" siempre tiene que ser una referencia local, en este caso se llamará "noBorrado", un template tan largo como queramos y que especificamos más adelante.  -->
+
+
+<div *ngIf= "heroeBorrado; else noBorrado">
+<h3> personaje Borrado: <small>{{heroeBorrado}}</small></h3>
+</div>
+
+
+<!-- Aquí construimos el templeate a renderear si la primera condición del if falla. La escribimos dentro del ng-template , un tag especial de Angular y la referenciamos con "#".  -->
+
+
+<ng-template #noBorrado>
+    <h3> No se ha borrado nada</h3>
+</ng-template>
+
+
+
